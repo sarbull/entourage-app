@@ -2,12 +2,12 @@
 Table of contents
 =================
 
-[My first resource](#my-first-resource)
+[Users](#users)
 
-# My first resource
-## GET
+# Users
+## Return a single user
 ```
-GET /my-first-resource/:id
+GET /users/:id
 ```
 ##### Parameters
 | Name | Type    | Description |
@@ -16,6 +16,8 @@ GET /my-first-resource/:id
 ##### Response 
 ```json
 {
-  "id": 123
+  "id": 123,
+  "username": "email1",
+  "email": "email1@test.com"
 }
 ```
