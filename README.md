@@ -1,4 +1,5 @@
 # entourage
+***********
 Table of contents
 =================
 * [Users](#users)
