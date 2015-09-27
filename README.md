@@ -1,7 +1,6 @@
 # entourage
 Table of contents
 =================
-
 * [Users](#users)
   * [GET /users](#get-users)
   * [GET /users/:id](#get-users-id)
@@ -9,6 +8,7 @@ Table of contents
 
 # Users
 ## Get users
+##### URL
 ```
 GET /users
 ```
@@ -30,6 +30,7 @@ None
 ]
 ```
 ## Get users id
+##### URL
 ```
 GET /users/:id
 ```
@@ -46,6 +47,7 @@ GET /users/:id
 }
 ```
 ## Post users
+##### URL
 ```
 POST /users
 ```
