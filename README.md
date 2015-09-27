@@ -1,14 +1,14 @@
-# entourage
-***********
-Table of contents
-=================
+entourage
+=========
+
+## Table of contents
 * [Users](#users)
   * [GET /users](#get-users)
   * [GET /users/:id](#get-users-id)
   * [POST /users](#post-users)
 
-# Users
-## Get users
+## Users
+### Get users
 ##### URL
 ```
 GET /users
@@ -31,7 +31,7 @@ None
 ]
 ```
 [Top](#table-of-contents)
-## Get users id
+### Get users id
 ##### URL
 ```
 GET /users/:id
@@ -49,7 +49,7 @@ GET /users/:id
 }
 ```
 [Top](#table-of-contents)
-## Post users
+### Post users
 ##### URL
 ```
 POST /users
