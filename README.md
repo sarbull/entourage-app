@@ -5,7 +5,7 @@ Table of contents
 * [Users](#users)
   * [GET /users](#get-users)
   * [GET /users/:id](#get-users-id)
-  * [POST /users/:id](#post-users)
+  * [POST /users](#post-users)
 
 # Users
 ## Get users
