@@ -1,5 +1,21 @@
 # entourage
+Table of contents
+=================
 
-Use Postman google app to test requests
+[My first resource](#my-first-resource)
 
-Document requests here: https://docs.google.com/spreadsheets/d/1ZN3WFA7Rb1i8Vw-wKWhg9t6GJfPeg-CothDzFdMeGpc/edit?usp=sharing
+# My first resource
+## GET
+```
+GET /my-first-resource/:id
+```
+##### Parameters
+| Name | Type    | Description |
+| ---- | ----    | ----------- |
+| id   | integer | lorem ipsum |
+##### Response 
+```json
+{
+  "id": 123
+}
+```
