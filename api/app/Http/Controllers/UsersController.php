@@ -7,35 +7,30 @@ use App\Models\User;
 class UsersController extends Controller {
 
     public function index() {
-        $users = [
-            ['id' => 123, 'email' => 'email1@test.com', 'username' => 'email1'],
-            ['id' => 124, 'email' => 'email2@test.com', 'username' => 'email2']
-        ];
+        $users = factory('App\Models\User', 5)->make();
         return response()->json($users);
     }
 
     public function show($id) {
-        $user = [
-            'id' => 123, 'email' => 'email1@test.com', 'username' => 'email1'
-        ];
+        $user = factory('App\Models\User')->make();
         return response()->json($user);
     }
 
     public function store(Request $request) {
         $data = $request->input('user');
-        $user = User::create($data);
+        $user = factory('App\Models\User')->make($data);
         return response()->json($user);
     }
 
     public function update(Request $request, $id) {
-        $user    = User::find($id);
-        $updated = $request->input('user');
-        $user->update($updated_user);
-        return response()->json($user->toJson());
+        $data = $request->input('user');
+        $user = factory('App\Models\User')->make($data);
+        return response()->json($user);
     }
 
     public function destroy($id) {
-        $user = User::find($id);
+        $user = factory('App\Models\User')->make();
         $user->delete();
+        return response(NULL);
     }
 }
