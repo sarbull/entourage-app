@@ -29,7 +29,7 @@ class ApiController extends BaseController {
 	 */
 	public function getStatusCode() {
 		return $this->statusCode;
-    }
+	}
 
 	/**
 	 * Set the request status code
@@ -42,7 +42,7 @@ class ApiController extends BaseController {
 		$this->statusCode = $statusCode;
 
 		return $this;
-    }
+	}
 
     /**
 	 * The API response formatter
@@ -56,9 +56,9 @@ class ApiController extends BaseController {
 	 */
 	public function respond($data = null, $success = true, $error = null, $headers = []) {
 		return response()->json(['success' => $success, 'error' => $error, 'data' => $data], $this->getStatusCode(), $headers);
-    }
+	}
 
-    /**
+	/**
 	 * Error API response
 	 *
 	 * @param 	string 		$message 		the error message
@@ -67,7 +67,7 @@ class ApiController extends BaseController {
 	 */
 	public function respondWithError($message) {
 		return $this->respond(['error' => $message], false);
-    }
+	}
 
 	/**
 	 * Not Found error API response
@@ -77,8 +77,8 @@ class ApiController extends BaseController {
 	 * @return 	string
 	 */
 	public function respondNotFound($message = 'Not Found!') {
-        return $this->setStatusCode(404)->respondWithError($message);
-    }
+		return $this->setStatusCode(404)->respondWithError($message);
+	}
 
 	/**
 	 * Internal Error API response
@@ -89,9 +89,9 @@ class ApiController extends BaseController {
 	 */
 	public function respondInternalError($message = 'Internal Error!') {
 		return $this->setStatusCode(500)->respondWithError($message);
-    }
+	}
 
-    /**
+	/**
 	 * Failed Validation error API response
 	 * @param 	string 			$message 		the validation error messages
 	 *
@@ -99,7 +99,7 @@ class ApiController extends BaseController {
 	 */
 	public function respondFailedValidationError($message = 'Parameters failed validation!') {
 		return $this->setStatusCode(422)->respondWithError($message);
-    }
+	}
 
 	/**
 	 * Unauthorized API response
@@ -110,7 +110,7 @@ class ApiController extends BaseController {
 	 */
 	public function respondUnauthorizedError($message = 'Unauthorized!') {
 		return $this->setStatusCode(401)->respondWithError($message);
-    }
+	}
 
 	/**
 	 * Forbidden API response
@@ -121,7 +121,7 @@ class ApiController extends BaseController {
 	 */
 	public function respondForbiddenError($message = 'Forbidden!') {
 		return $this->setStatusCode(403)->respondWithError($message);
-    }
+	}
 
     /**
 	 * Create success API response
@@ -132,7 +132,7 @@ class ApiController extends BaseController {
 	 */
 	public function respondCreated($message = 'Successfully created!') {
 		return $this->setStatusCode(201)->respond(['error' => $message]);
-    }
+	}
 
 	/**
 	 * Pagianted API response
@@ -153,5 +153,5 @@ class ApiController extends BaseController {
 		]);
 
 		return $this->respond($data);
-    }
+	}
 }
