@@ -1,8 +1,31 @@
 ## Table of contents
+* [Token](#token)
+  * [POST /auth](#post-auth)
+  * [Auth request example](#auth-request-example)
 * [Users](#users)
   * [GET /users](#get-users)
   * [GET /users/:id](#get-users-id)
   * [POST /users](#post-users)
+
+## Token
+### POST auth
+```
+POST /auth
+```
+##### Parameters
+| Name     | Type   | Description |
+| ----     | ----   | ----------- |
+| email    | string |  |
+| password | string |  |
+##### Response 
+```json
+{
+  "token" : "...."
+}
+```
+[Top](#table-of-contents)
+### Example
+![Example authorized request](http://github.com/sarbull/entourage/auth.png "Example authorized request")
 
 ## Users
 ### Get users
