@@ -20,7 +20,6 @@ class ApiController extends BaseController {
      * @return  void
      */
 	public function __construct() {
-		config()->set('app.locale', Request::input('lang') ?: env('APP_LOCALE'));
 	}
 
 	/**
