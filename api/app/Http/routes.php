@@ -1,7 +1,7 @@
 <?php
 
-$app->get('/', function () use ($app) {
-    return $app->welcome();
+$app->get('/', function () {
+  return response()->json(["status" => "active"]);
 });
 
 $app->get('users', 'UsersController@index');

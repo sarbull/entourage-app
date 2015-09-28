@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Models\User;
 
 class UsersController extends Controller {
 
@@ -23,19 +23,19 @@ class UsersController extends Controller {
 
     public function store(Request $request) {
         $data = $request->input('user');
-        $user = App\User::create($data);
+        $user = User::create($data);
         return response()->json($user);
     }
 
     public function update(Request $request, $id) {
-        $user    = App\User::find($id);
+        $user    = User::find($id);
         $updated = $request->input('user');
         $user->update($updated_user);
         return response()->json($user->toJson());
     }
 
     public function destroy($id) {
-        $user = App\User::find($id);
+        $user = User::find($id);
         $user->delete();
     }
 }
