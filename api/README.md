@@ -1,6 +1,3 @@
-entourage
-=========
-
 ## Table of contents
 * [Users](#users)
   * [GET /users](#get-users)
