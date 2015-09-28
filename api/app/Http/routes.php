@@ -7,8 +7,8 @@ $app->get('/', function () {
 $app->post('auth/login', 'AuthController@postLogin');
 
 $app->group(['prefix' => 'users', 'middleware' => 'jwt.auth'], function($app) {
-  $app->get('', 'UsersController@index');
-  $app->get('{id}', 'UsersController@show');
-  $app->post('', 'UsersController@store');
-  $app->delete('{id}', 'UsersController@destroy');
+  $app->get('', 'App\Http\Controllers\UsersController@index');
+  $app->get('{id}', 'App\Http\Controllers\UsersController@show');
+  $app->post('', 'App\Http\Controllers\UsersController@store');
+  $app->delete('{id}', 'App\Http\Controllers\UsersController@destroy');
 });
