@@ -24,8 +24,8 @@ POST /auth
 }
 ```
 [Top](#table-of-contents)
-### Example
-![Example authorized request](http://github.com/sarbull/entourage/documents/auth.png "Example authorized request")
+### Auth request example
+![Auth request example](https://raw.githubusercontent.com/sarbull/entourage/master/documents/auth.png?token=ABxxsPhso0Cm0wNnjqgnWmZ3xJn3IwLeks5WEwvSwA%3D%3D "Auth request example")
 
 ## Users
 ### Get users
