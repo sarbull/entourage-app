@@ -9,7 +9,7 @@ use Illuminate\Http\Response as IlluminateResponse;
 
 
 class AuthController extends Controller {
-    public function postLogin(Request $request) {
+    public function token(Request $request) {
         try {
             $this->validate($request, [
                 'email' => 'required|email|max:255', 'password' => 'required',

@@ -4,7 +4,7 @@ $app->get('/', function () {
   return response()->json(["status" => "active"]);
 });
 
-$app->post('auth/login', 'AuthController@postLogin');
+$app->post('auth', 'AuthController@token');
 
 $app->group(['prefix' => 'users', 'middleware' => 'jwt.auth'], function($app) {
   $app->get('', 'App\Http\Controllers\UsersController@index');
