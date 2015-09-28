@@ -1,7 +1,7 @@
 <?php
 
-class ExampleTest extends TestCase {
-    public function rootPath() {
+class GeneralTest extends TestCase {
+    public function testRootPath() {
         $this->visit('/')
              ->see(json_encode(['status' => 'active']));
     }
