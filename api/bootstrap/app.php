@@ -21,6 +21,11 @@ $app = new Laravel\Lumen\Application(
 
 $app->withFacades();
 
+$app->configure('jwt');
+class_alias('Tymon\JWTAuth\Facades\JWTAuth', 'JWTAuth');
+class_alias('Tymon\JWTAuth\Facades\JWTFactory', 'JWTFactory');
+
+
 $app->withEloquent();
 
 /*
@@ -63,9 +68,10 @@ $app->singleton(
 //     // Laravel\Lumen\Http\Middleware\VerifyCsrfToken::class,
 // ]);
 
-// $app->routeMiddleware([
-
-// ]);
+$app->routeMiddleware([
+    'jwt.auth'    => Tymon\JWTAuth\Middleware\GetUserFromToken::class,
+    'jwt.refresh' => Tymon\JWTAuth\Middleware\RefreshToken::class,
+]);
 
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +86,10 @@ $app->singleton(
 
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
+$app->register('Tymon\JWTAuth\Providers\JWTAuthServiceProvider');
+if(class_exists('Vluzrmos\Tinker\TinkerServiceProvider')) {
+    $app->register('Vluzrmos\Tinker\TinkerServiceProvider');
+}
 
 /*
 |--------------------------------------------------------------------------

@@ -1,10 +1,9 @@
-<?php
+<?php namespace App\Http\Controllers;
 
-namespace App\Http\Controllers;
-
+use App\Http\Controllers\ApiController;
 use App\Models\User;
 
-class UsersController extends Controller {
+class UsersController extends ApiController {
 
     public function index() {
         $users = factory('App\Models\User', 5)->make();

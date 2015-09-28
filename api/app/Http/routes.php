@@ -4,7 +4,11 @@ $app->get('/', function () {
   return response()->json(["status" => "active"]);
 });
 
-$app->get('users', 'UsersController@index');
-$app->get('users/{id}', 'UsersController@show');
-$app->post('users', 'UsersController@store');
-$app->delete('users/{id}', 'UsersController@destroy');
+$app->post('auth/login', 'AuthController@postLogin');
+
+$app->group(['prefix' => 'users', 'middleware' => 'jwt.auth'], function($app) {
+  $app->get('', 'UsersController@index');
+  $app->get('{id}', 'UsersController@show');
+  $app->post('', 'UsersController@store');
+  $app->delete('{id}', 'UsersController@destroy');
+});
