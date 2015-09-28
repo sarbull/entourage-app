@@ -1,7 +1,7 @@
 ## Table of contents
 * [Token](#token)
   * [POST /auth](#post-auth)
-  * [Auth request example](#auth-request-example)
+  * [Authorized request example](#authorized-request-example)
 * [Users](#users)
   * [GET /users](#get-users)
   * [GET /users/:id](#get-users-id)
@@ -9,6 +9,7 @@
 
 ## Token
 ### POST auth
+##### Url
 ```
 POST /auth
 ```
@@ -24,9 +25,27 @@ POST /auth
 }
 ```
 [Top](#table-of-contents)
-### Auth request example
-![Auth request example](https://raw.githubusercontent.com/sarbull/entourage/master/documents/auth.png?token=ABxxsPhso0Cm0wNnjqgnWmZ3xJn3IwLeks5WEwvSwA%3D%3D "Auth request example")
-
+### Authorized request example
+##### Url
+```
+GET /test/auth
+```
+##### Headers
+| Name                     | Type      | Description |
+| ----                     | ----      | ----------- |
+| Authorization: Bearer    | __TOKEN__ |             |
+##### Response 
+```json
+{
+  "id" : 1,
+  "created_at" : "2015-09-28 22:53:59",
+  "username" : "test",
+  "email" : "test@test.com",
+  "updated_at" : "2015-09-28 22:53:59"
+}
+```
+![Authorized request example](https://raw.githubusercontent.com/sarbull/entourage/master/documents/auth.png?token=ABxxsPhso0Cm0wNnjqgnWmZ3xJn3IwLeks5WEwvSwA%3D%3D "Authorized request example")
+[Top](#table-of-contents)
 ## Users
 ### Get users
 ##### URL

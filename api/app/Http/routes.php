@@ -8,7 +8,7 @@ $app->post('auth', 'AuthController@token');
 
 $app->get('test/auth', function () {
   $user = JWTAuth::parseToken()->authenticate();
-  var_dump($user);
+  return response()->json($user->toArray());
 });
 
 $app->group(['prefix' => 'users', 'middleware' => 'jwt.auth'], function($app) {
