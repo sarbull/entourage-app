@@ -20,4 +20,9 @@ class UsersController extends Controller {
         ];
         return response()->json($user);
     }
+
+    public function store(Request $request) {
+        $user = $request->input('user');
+        return response()->json($user);
+    }
 }
