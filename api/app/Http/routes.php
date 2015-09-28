@@ -6,6 +6,11 @@ $app->get('/', function () {
 
 $app->post('auth', 'AuthController@token');
 
+$app->get('test/auth', function () {
+  $user = JWTAuth::parseToken()->authenticate();
+  var_dump($user);
+});
+
 $app->group(['prefix' => 'users', 'middleware' => 'jwt.auth'], function($app) {
   $app->get('', 'App\Http\Controllers\UsersController@index');
   $app->get('{id}', 'App\Http\Controllers\UsersController@show');
