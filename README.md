@@ -12,7 +12,7 @@ $ memcached -p 11211 # lumen uses memcached for you kno.. caching
 $ phpunit # used for tests, yes, we now work with TDD Mihai.
 ```
 
-#### start
+#### Start API
 ```bash
 $ cp .env.sample .env # and change to what you need
 $ php artisan migrate:install
