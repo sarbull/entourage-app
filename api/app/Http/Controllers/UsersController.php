@@ -22,7 +22,20 @@ class UsersController extends Controller {
     }
 
     public function store(Request $request) {
-        $user = $request->input('user');
+        $data = $request->input('user');
+        $user = App\User::create($data);
         return response()->json($user);
+    }
+
+    public function update(Request $request, $id) {
+        $user    = App\User::find($id);
+        $updated = $request->input('user');
+        $user->update($updated_user);
+        return response()->json($user->toJson());
+    }
+
+    public function destroy($id) {
+        $user = App\User::find($id);
+        $user->delete();
     }
 }

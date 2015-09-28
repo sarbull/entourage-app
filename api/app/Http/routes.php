@@ -5,5 +5,6 @@ $app->get('/', function () use ($app) {
 });
 
 $app->get('users', 'UsersController@index');
-$app->get('users/{user_id}', 'UsersController@show');
-$app->post('users/', 'UsersController@store');
+$app->get('users/{id}', 'UsersController@show');
+$app->post('users', 'UsersController@store');
+$app->delete('users/{id}', 'UsersController@destroy');
