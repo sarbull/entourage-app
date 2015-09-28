@@ -1,15 +1,8 @@
 <?php
 
-class ExampleTest extends TestCase
-{
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testBasicExample()
-    {
+class ExampleTest extends TestCase {
+    public function rootPath() {
         $this->visit('/')
-             ->see('Lumen.');
+             ->see(json_encode(['status' => 'active']));
     }
 }
