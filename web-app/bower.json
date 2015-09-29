@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "homepage": "https://github.com/sarbull/entourage",
   "authors": [
-    "Sirbu Nicolae-Cezar <sirbunicolaecezar@gmail.com>"
+    "Sirbu Nicolae-Cezar <sirbunicolaecezar@gmail.com>",
+    "Balas Mihai <mihay91@gmail.com>"
   ],
   "main": "index.html",
   "license": "MIT",
