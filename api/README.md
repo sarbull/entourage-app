@@ -44,7 +44,7 @@ GET /test/auth
   "updated_at" : "2015-09-28 22:53:59"
 }
 ```
-![Authorized request example](https://raw.githubusercontent.com/sarbull/entourage/master/documents/auth.png?token=ABxxsPhso0Cm0wNnjqgnWmZ3xJn3IwLeks5WEwvSwA%3D%3D "Authorized request example")
+![Authorized request example](https://raw.githubusercontent.com/sarbull/entourage/master/documents/auth.png?token=ABxxsLmu_stwBwdtDF8YrjhzNBZx7zIgks5WEw9mwA%3D%3D "Authorized request example")
 [Top](#table-of-contents)
 ## Users
 ### Get users
