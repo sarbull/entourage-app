@@ -1,3 +1,4 @@
 node_modules
 app/*.min.js
 libs/*
+.DS_Store
