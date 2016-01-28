@@ -1,7 +1,10 @@
 module.exports = function(grunt) {
 
   var modulesToCopy = [
-    './node_modules/angular/angular.min.js'
+    './bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+    './bower_components/angular-bootstrap/ui-bootstrap.min.js',
+    './bower_components/jquery/dist/jquery.min.js',
+    './bower_components/angular/angular.min.js'
   ];
 
   var filesToGrunt = [

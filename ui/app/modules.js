@@ -2,6 +2,7 @@
   'use strict';
 
   angular.module('nejucam', [
+    'ui.bootstrap',
     'nejucam.config',
     'nejucam.controllers',
     'nejucam.directives',
