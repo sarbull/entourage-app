@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 
   var filesToGrunt = [
-    './app/modules.js',
+    './app/config/modules.js',
     './app/config/*.js',
     './app/services/*.js',
     './app/controllers/*.js',
