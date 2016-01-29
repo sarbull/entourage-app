@@ -134,7 +134,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-http-server');
 
-  grunt.registerTask('default', ['jshint', 'concat', 'copy', 'tags']);
+  grunt.registerTask('default', ['jshint', 'concat', 'copy', 'uglify', 'tags']);
   grunt.registerTask('server', ['http-server']);
   
 
