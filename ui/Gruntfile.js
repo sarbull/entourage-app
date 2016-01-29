@@ -52,7 +52,7 @@ module.exports = function(grunt) {
             openTag: '<!-- include css start -->',
             closeTag: '<!-- include css end -->'
           },
-          src: ['./app/assets/css/*.css'],
+          src: ['./app/assets/css/*.css', './app/assets/css/lumen.css'],
           dest: 'app/index.html'
       }
     },
