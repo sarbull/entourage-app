@@ -3,6 +3,7 @@ module.exports = function(grunt) {
   var filesToGrunt = [
     './app/config/modules.js',
     './app/config/*.js',
+    './app/app.js',
     './app/services/*.js',
     './app/controllers/*.js',
     './app/directives/*.js'

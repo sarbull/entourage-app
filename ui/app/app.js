@@ -1,1 +1,5 @@
-angular.module('nejucam');
+(function() {
+  'use strict';
+
+  angular.module('nejucam');
+})();
