@@ -1,12 +1,5 @@
 module.exports = function(grunt) {
 
-  var modulesToCopy = [
-    './bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
-    './bower_components/angular-bootstrap/ui-bootstrap.min.js',
-    './bower_components/jquery/dist/jquery.min.js',
-    './bower_components/angular/angular.min.js'
-  ];
-
   var filesToGrunt = [
     './app/modules.js',
     './app/config/*.js',
@@ -16,7 +9,10 @@ module.exports = function(grunt) {
   ];
 
   var filesToInclude = [
-    './app/libs/*.js',
+    './app/assets/js/jquery.min.js',
+    './app/assets/js/bootstrap.min.js',
+    './app/assets/js/angular.min.js',
+    './app/assets/js/ui-bootstrap-tpls.min.js',
     './app/<%= filename %>'
   ];
 
@@ -40,13 +36,22 @@ module.exports = function(grunt) {
       }
     },
     tags: {
-      build: {
+      buildScripts: {
           options: {
             scriptTemplate: '<script src="{{ path }}"></script>',
             openTag: '<!-- include js start -->',
             closeTag: '<!-- include js end -->'
           },
           src: filesToInclude,
+          dest: 'app/index.html'
+      },
+      buildLinks: {
+          options: {
+            scriptTemplate: '<link rel="stylesheet" type="text/css" href="{{ path.css }}">',
+            openTag: '<!-- include css start -->',
+            closeTag: '<!-- include css end -->'
+          },
+          src: ['./app/assets/css/*.css'],
           dest: 'app/index.html'
       }
     },
@@ -86,12 +91,36 @@ module.exports = function(grunt) {
       options: {
         punctuation: ''
       },
-      files: {
-        expand: true,
-        flatten: true,
-        src: modulesToCopy,
-        dest: './app/libs/',
-        filter: 'isFile'
+      main: {
+        files: [
+          {
+            expand: true, cwd: './bower_components/jquery/dist', src: 'jquery.min.js', dest: './app/assets/js'
+          },
+          {
+            expand: true, cwd: './bower_components/bootstrap/dist', src: 'fonts/*', dest: './app/assets/'
+          },
+          {
+            expand: true, cwd: './bower_components/bootstrap/dist', src: 'css/bootstrap.css', dest: './app/assets/'
+          },
+          {
+            expand: true, cwd: './bower_components/bootstrap/dist', src: 'js/bootstrap.min.js', dest: './app/assets/'
+          },
+          {
+            expand: true, cwd: './bower_components/angular-bootstrap', src: 'ui-bootstrap-tpls.min.js', dest: './app/assets/js/'
+          },
+          {
+            expand: true, cwd: './bower_components/angular', src: 'angular.min.js', dest: './app/assets/js/'
+          }
+        ]
+      }
+    },
+    'http-server': {
+      dev: {
+        root: 'app',
+        port: 8080,
+        host: '0.0.0.0',
+        runInBackground: false,
+        openBrowser : false
       }
     }
   });
@@ -101,7 +130,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-script-link-tags');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-copy');
+  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-http-server');
 
   grunt.registerTask('default', ['jshint', 'concat', 'copy', 'tags']);
+  grunt.registerTask('server', ['http-server']);
+  
 
 };
