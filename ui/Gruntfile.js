@@ -115,6 +115,15 @@ module.exports = function(grunt) {
         ]
       }
     },
+    watch: {
+      scripts: {
+        files: filesToGrunt.concat('app/views/**/*'),
+        tasks: ['default'],
+        options: {
+          reload: true,
+        },
+      },
+    },
     'http-server': {
       dev: {
         root: 'app',
@@ -133,9 +142,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-copy');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-http-server');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('default', ['jshint', 'concat', 'copy', 'uglify', 'tags']);
   grunt.registerTask('server', ['http-server']);
+
   
 
 };
