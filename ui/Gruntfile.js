@@ -1,39 +1,38 @@
 module.exports = function(grunt) {
 
-  var filesToGrunt = [
-    './app/config/modules.js',
-    './app/config/*.js',
-    './app/app.js',
-    './app/services/*.js',
-    './app/controllers/*.js',
-    './app/directives/*.js'
+
+  var jsLibFiles = [
+    'bower_components/jquery/dist/jquery.min.js',
+    'bower_components/bootstrap/dist/js/bootstrap.min.js',
+    'bower_components/angular/angular.min.js',
+    'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js'
   ];
 
-  var filesToInclude = [
-    './app/assets/js/jquery.min.js',
-    './app/assets/js/bootstrap.min.js',
-    './app/assets/js/angular.min.js',
-    './app/assets/js/ui-bootstrap-tpls.min.js',
-    './app/<%= filename %>'
+  var jsAppFiles = [
+    './config/modules.js',
+    './config/*.js',
+    './services/*.js',
+    './controllers/*.js',
+    './directives/*.js',
+    './app.js'
+  ];
+
+  var cssLibFiles = [
+    'bower_components/bootstrap/dist/css/bootstrap.min.css',
+    'bower_components/angular/angular-csp.css'
   ];
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    filename: 'nejucam-ui-<%= pkg.version %>.min.js',
+    filename: '<%= pkg.name %>-<%= pkg.version %>',
     concat: {
-      dist: {
-        src: filesToGrunt,
-        dest: 'app/<%= filename %>',
+      js: {
+        src: jsAppFiles,
+        dest: '<%= filename %>.js'
       },
-    },
-    uglify: {
-      options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
-        quoteStyle: 1
-      },
-      build: {
-        src: 'app/<%= filename %>',
-        dest: 'app/<%= filename %>'
+      css: {
+        src: cssLibFiles,
+        dest: '<%= filename %>.css'
       }
     },
     tags: {
@@ -43,8 +42,8 @@ module.exports = function(grunt) {
             openTag: '<!-- include js start -->',
             closeTag: '<!-- include js end -->'
           },
-          src: filesToInclude,
-          dest: 'app/index.html'
+          src: jsLibFiles.concat(jsAppFiles),
+          dest: 'index.html'
       },
       buildLinks: {
           options: {
@@ -52,17 +51,13 @@ module.exports = function(grunt) {
             openTag: '<!-- include css start -->',
             closeTag: '<!-- include css end -->'
           },
-          src: [
-            './app/assets/css/bootstrap.css',
-            './app/assets/css/lumen.css',
-            './app/assets/css/custom.css'
-          ],
-          dest: 'app/index.html'
+          src: cssLibFiles,
+          dest: 'index.html'
       }
     },
     jshint: {
       all: {
-        src: filesToGrunt,
+        src: jsAppFiles,
         options: {
           bitwise: true,
           camelcase: true,
@@ -92,42 +87,6 @@ module.exports = function(grunt) {
         }
       }
     },
-    copy: {
-      options: {
-        punctuation: ''
-      },
-      main: {
-        files: [
-          {
-            expand: true, cwd: './bower_components/jquery/dist', src: 'jquery.min.js', dest: './app/assets/js'
-          },
-          {
-            expand: true, cwd: './bower_components/bootstrap/dist', src: 'fonts/*', dest: './app/assets/'
-          },
-          {
-            expand: true, cwd: './bower_components/bootstrap/dist', src: 'css/bootstrap.css', dest: './app/assets/'
-          },
-          {
-            expand: true, cwd: './bower_components/bootstrap/dist', src: 'js/bootstrap.min.js', dest: './app/assets/'
-          },
-          {
-            expand: true, cwd: './bower_components/angular-bootstrap', src: 'ui-bootstrap-tpls.min.js', dest: './app/assets/js/'
-          },
-          {
-            expand: true, cwd: './bower_components/angular', src: 'angular.min.js', dest: './app/assets/js/'
-          }
-        ]
-      }
-    },
-    watch: {
-      scripts: {
-        files: filesToGrunt.concat('app/views/**/*'),
-        tasks: ['default'],
-        options: {
-          reload: true,
-        },
-      },
-    },
     'http-server': {
       dev: {
         root: 'app',
@@ -143,12 +102,16 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-script-link-tags');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-copy');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-http-server');
-  grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['jshint', 'concat', 'copy', 'uglify', 'tags']);
+  grunt.registerTask('concatAll', ['concat:js', 'concat:css']);
+
+
+  grunt.registerTask('default', ['jshint', 'concatAll', 'tags']);
+
+  grunt.registerTask('dev', ['jshint', 'tags']);
+
   grunt.registerTask('server', ['http-server']);
 
   
