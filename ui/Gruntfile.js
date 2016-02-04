@@ -28,11 +28,11 @@ module.exports = function(grunt) {
     concat: {
       js: {
         src: jsAppFiles,
-        dest: '<%= filename %>.js'
+        dest: '<%= filename %>.min.js'
       },
       css: {
         src: cssLibFiles,
-        dest: '<%= filename %>.css'
+        dest: '<%= filename %>.min.css'
       }
     },
     tags: {
