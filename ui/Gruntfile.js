@@ -107,7 +107,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('concatAll', ['concat:js', 'concat:css']);
 
-
   grunt.registerTask('default', ['jshint', 'concatAll', 'tags']);
 
   grunt.registerTask('dev', ['jshint', 'tags']);
