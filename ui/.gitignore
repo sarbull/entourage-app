@@ -1,6 +1,5 @@
 node_modules
 bower_components
-app/*.min.js
-app/libs/*
-libs/*
+*.min.js
+*.min.css
 .DS_Store
