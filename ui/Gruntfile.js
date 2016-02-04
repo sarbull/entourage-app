@@ -19,7 +19,9 @@ module.exports = function(grunt) {
 
   var cssLibFiles = [
     'bower_components/bootstrap/dist/css/bootstrap.min.css',
-    'bower_components/angular/angular-csp.css'
+    'bower_components/angular/angular-csp.css',
+    'assets/css/lumen.css',
+    'assets/css/custom.css'
   ];
 
   grunt.initConfig({
