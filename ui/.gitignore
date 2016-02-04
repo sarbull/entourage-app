@@ -3,4 +3,3 @@ bower_components
 *.min.js
 *.min.css
 .DS_Store
-index.html
