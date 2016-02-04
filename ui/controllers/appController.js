@@ -9,7 +9,7 @@
         loadingService.toggle();
         var $http = $injector.get('$http');
 
-        $http.get('http://google.ro').error(function(response) {
+        $http.get('http://google.ro').error(function() {
           $scope.loggedIn = false;
           loadingService.toggle();
         });
